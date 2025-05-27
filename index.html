@@ -19,39 +19,42 @@
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="cv.html">CV</a></li>
             </ul>
+            <div class="recruitment-btn">
+                <a href="#recruitment" class="btn-recruitment">RA 招聘</a>
+            </div>
         </div>
     </nav>
 
     <main class="container">
-        <section class="hero">
+        <section class="hero fade-in">
             <div class="hero-content">
                 <div class="profile-section">
-                    <div class="profile-image">
+                    <div class="profile-image scale-in">
                         <img src="profile.jpg" alt="Jia Siqi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="profile-placeholder">JS</div>
                     </div>
-                    <div class="profile-info">
+                    <div class="profile-info slide-in-right">
                         <h1>Jia Siqi</h1>
                         <p class="title">Research Assistant Professor</p>
                         <p class="affiliation">The University of Hong Kong</p>
                         
                         <div class="contact-links">
-                            <a href="mailto:siqijia@hku.hk">siqijia@hku.hk</a>
+                            <a href="mailto:siqijia@hku.hk" class="hover-glow">siqijia@hku.hk</a>
                             <span class="separator">|</span>
                             <span>+852 6701 7174</span>
                         </div>
                         
                         <div class="social-links">
-                            <a href="#" class="social-link">Google Scholar</a>
-                            <a href="#" class="social-link">ResearchGate</a>
-                            <a href="#" class="social-link">ORCID</a>
+                            <a href="#" class="social-link hover-lift">Google Scholar</a>
+                            <a href="#" class="social-link hover-lift">ResearchGate</a>
+                            <a href="#" class="social-link hover-lift">ORCID</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about">
+        <section class="about slide-up">
             <h2>About</h2>
             <div class="about-content">
                 <p>I am a Research Assistant Professor at The University of Hong Kong, specializing in urban environmental sustainability and climate adaptation. My research focuses on understanding and mitigating urban heat islands through innovative approaches in urban planning and green infrastructure design.</p>
@@ -60,7 +63,7 @@
 
                 <div class="research-interests">
                     <h3>Research Interests</h3>
-                    <ul>
+                    <ul class="stagger-in">
                         <li>Urban Heat Island & Microclimate</li>
                         <li>Green Infrastructure & Urban Greening</li>
                         <li>Urban Environmental Modeling</li>
@@ -71,25 +74,40 @@
             </div>
         </section>
 
-        <section class="news">
+        <section class="news slide-up">
             <h2>Recent News</h2>
             <div class="news-list">
-                <div class="news-item">
+                <div class="news-item hover-highlight">
                     <span class="date">2025.01</span>
                     <p>Awarded HKU SEED Fund for Basic Research for project on thermal environment assessment</p>
                 </div>
-                <div class="news-item">
+                <div class="news-item hover-highlight">
                     <span class="date">2024.12</span>
                     <p>New paper published in <em>Energy and Buildings</em> on global cooling potentials of green roofs</p>
                 </div>
-                <div class="news-item">
+                <div class="news-item hover-highlight">
                     <span class="date">2024.08</span>
                     <p>Started position as Research Assistant Professor at HKU</p>
                 </div>
-                <div class="news-item">
+                <div class="news-item hover-highlight">
                     <span class="date">2024.06</span>
                     <p>Selected for Shanghai Magnolia Program</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="recruitment" class="recruitment slide-up">
+            <h2>RA 招聘 (Research Assistant Recruitment)</h2>
+            <div class="recruitment-content">
+                <p>我们实验室正在招聘研究助理，专注于城市环境可持续性和气候适应研究。欢迎对以下领域感兴趣的同学申请：</p>
+                <ul>
+                    <li>城市热岛效应和微气候研究</li>
+                    <li>绿色基础设施和城市绿化</li>
+                    <li>城市环境建模</li>
+                    <li>可持续城市规划</li>
+                </ul>
+                <p><strong>要求：</strong>GIS、遥感或相关背景，有编程经验优先。</p>
+                <p><strong>联系方式：</strong> <a href="mailto:siqijia@hku.hk" class="hover-glow">siqijia@hku.hk</a></p>
             </div>
         </section>
     </main>
@@ -99,5 +117,39 @@
             <p>&copy; 2025 Jia Siqi. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.slide-up, .fade-in, .scale-in, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 交错动画
+        document.querySelectorAll('.stagger-in li').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // 平滑滚动到招聘部分
+        document.querySelector('.btn-recruitment').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('recruitment').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
