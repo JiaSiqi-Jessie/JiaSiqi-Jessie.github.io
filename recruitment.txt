@@ -1,0 +1,21 @@
+TITLE: Research Assistant Recruitment
+
+DESCRIPTION: Our laboratory at The University of Hong Kong is actively recruiting research assistants to join our cutting-edge research in urban environmental sustainability and climate adaptation. We are looking for motivated students interested in contributing to innovative solutions for urban heat island mitigation and sustainable urban development.
+
+AREAS:
+- Urban heat island effects and microclimate research
+- Green infrastructure assessment and urban greening strategies
+- Urban environmental modeling using machine learning and AI
+- Remote sensing and GIS applications for urban sustainability
+- Building energy efficiency and thermal comfort studies
+- Climate change adaptation and resilience planning
+- Nature-based solutions for urban challenges
+- Sustainable urban planning and design
+
+REQUIREMENTS: Strong background in GIS, remote sensing, environmental science, urban planning, or related fields. Programming experience (Python, R, MATLAB) preferred. Experience with machine learning, deep learning, or urban climate modeling is a plus. Excellent English communication skills required.
+
+BENEFITS: Opportunity to work on internationally recognized research projects, access to state-of-the-art facilities, collaboration with leading researchers globally, and potential for conference presentations and publications.
+
+CONTACT: siqijia@hku.hk
+
+STATUS: ACTIVE
