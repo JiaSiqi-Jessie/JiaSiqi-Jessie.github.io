@@ -22,31 +22,31 @@ body {
 
 /* 动画关键帧 */
 @keyframes fadeInUp {
-    from {
+    0% {
         opacity: 0;
         transform: translateY(30px);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 @keyframes fadeIn {
-    from {
+    0% {
         opacity: 0;
     }
-    to {
+    100% {
         opacity: 1;
     }
 }
 
 @keyframes slideIn {
-    from {
+    0% {
         opacity: 0;
         transform: translateX(-20px);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
@@ -55,6 +55,20 @@ body {
 /* 动画类 */
 .fade-in {
     animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* 确保在不支持动画的情况下元素仍然可见 */
+@media (prefers-reduced-motion: reduce) {
+    .profile-info,
+    .profile-info h1,
+    .title,
+    .affiliation,
+    .contact-links,
+    .social-links {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
 }
 
 /* Navigation */
@@ -125,6 +139,8 @@ body {
 .hero {
     padding: 80px 0;
     animation: fadeIn 1s ease-out;
+    opacity: 1 !important; /* 强制显示 hero section */
+    transform: translateY(0) !important; /* 确保位置正确 */
 }
 
 .profile-section {
@@ -173,45 +189,47 @@ body {
 }
 
 .profile-info {
+    opacity: 1 !important; /* 确保可见 */
     animation: fadeInUp 1.2s ease-out;
 }
 
 .profile-info h1 {
     font-size: 48px;
-    font-weight: 700; /* 增加粗细 */
+    font-weight: 700 !important; /* 增加粗细 */
     margin-bottom: 8px;
-    color: #333;
-    background: linear-gradient(135deg, #333, #555);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #333 !important;
+    opacity: 1 !important; /* 确保可见 */
 }
 
 .title {
     font-size: 20px;
-    color: #666;
+    color: #666 !important;
     margin-bottom: 4px;
+    opacity: 1 !important; /* 确保可见 */
     animation: fadeInUp 1.4s ease-out;
 }
 
 .affiliation {
     font-size: 18px;
-    color: #666;
+    color: #666 !important;
     margin-bottom: 30px;
+    opacity: 1 !important; /* 确保可见 */
     animation: fadeInUp 1.6s ease-out;
 }
 
 .contact-links {
     margin-bottom: 20px;
     font-size: 16px;
+    opacity: 1 !important; /* 确保可见 */
     animation: fadeInUp 1.8s ease-out;
 }
 
 .contact-links a {
-    color: #333;
+    color: #333 !important;
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
+    opacity: 1 !important;
 }
 
 .contact-links a:hover {
@@ -236,12 +254,14 @@ body {
 
 .separator {
     margin: 0 15px;
-    color: #ccc;
+    color: #ccc !important;
+    opacity: 1 !important;
 }
 
 .social-links {
     display: flex;
     gap: 20px;
+    opacity: 1 !important; /* 确保可见 */
     animation: fadeInUp 2s ease-out;
 }
 
@@ -283,9 +303,21 @@ body {
 /* Content Sections */
 section {
     margin-bottom: 80px;
+    opacity: 1; /* 默认可见 */
+    transform: translateY(0); /* 默认位置 */
+    transition: all 0.8s ease;
+}
+
+/* 只对 index.html 的特定section应用动画初始状态 */
+.home-page section:not(.hero) {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.8s ease;
+}
+
+/* Hero section 例外 - 始终可见 */
+section.hero {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 section.fade-in {
@@ -640,6 +672,9 @@ footer::before {
     
     .profile-info h1 {
         font-size: 36px;
+        font-weight: 700; /* 保持粗体 */
+        color: #333; /* 确保颜色 */
+        opacity: 1; /* 确保可见 */
     }
     
     .social-links {
@@ -669,7 +704,9 @@ footer::before {
     
     .profile-info h1 {
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 700; /* 保持粗体 */
+        color: #333; /* 确保颜色 */
+        opacity: 1; /* 确保可见 */
     }
     
     .social-links {
@@ -705,7 +742,8 @@ footer::before {
     }
     
     .nav-brand a, .profile-info h1 {
-        color: #fff;
+        color: #fff !important; /* 强制显示白色 */
+        opacity: 1 !important; /* 确保可见 */
     }
     
     h2, h3 {
